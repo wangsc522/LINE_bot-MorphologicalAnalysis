@@ -57,7 +57,7 @@ def callback():
             t = Tokenizer()
             for token in t.tokenize(message['content']['text']):
                 response += str(token) + '\n'
-            post_text(message['content']['from'], response)
+        post_text(message['content']['from'], response)
     return ''
 
 if __name__ == "__main__":
