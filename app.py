@@ -50,7 +50,7 @@ def callback():
                 response = action(text)
                 break
         else:
-            response = 'コマンド以外の言葉'
+            response = '[オウム返し]' + message['content']['text']
 
         post_text(message['content']['from'],response)
 
