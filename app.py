@@ -8,12 +8,12 @@ import re
 LINEBOT_API_EVENT ='https://trialbot-api.line.me/v1/events'
 LINE_HEADERS = {
     'Content-type': 'application/json; charset=UTF-8',
-    'X-Line-ChannelID':'XXXXXXX', # Channel ID
-    'X-Line-ChannelSecret':'XXXXXXXXXXXXXXXXXXXXXXXXXXX', # Channel secre
-    'X-Line-Trusted-User-With-ACL':'XXXXXXXXXXXXXXXXXXXXXXXXXX' # MID (of Channel)
+    'X-Line-ChannelID':'1466099631', # Channel ID
+    'X-Line-ChannelSecret':'1255afe6c79053d174d67a6d3d310eb5', # Channel secre
+    'X-Line-Trusted-User-With-ACL':'ue791aeb4fd39f39d9a9460e80bd07490' # MID (of Channel)
 }
 
-def post_event( to, content):
+def post_event(to, content):
     msg = {
         'to': [to],
         'toChannel': 1383378250, # Fixed  value
@@ -22,7 +22,7 @@ def post_event( to, content):
     }
     r = requests.post(LINEBOT_API_EVENT, headers=LINE_HEADERS, data=json.dumps(msg))
 
-def post_text( to, text ):
+def post_text(to, text):
     content = {
         'contentType':1,
         'toType':1,
@@ -55,5 +55,6 @@ def hello():
     return ''
 
 if __name__ == "__main__":
-    context = ('cert/server.pem', 'cert/privkey.pem')
-    app.run(host='0.0.0.0', port=443, ssl_context=context, threaded=True, debug=True)
+    #context = ('cert/server.pem', 'cert/privkey.pem')
+    #app.run(host = '0.0.0.0', port = 443, ssl_context = context, threaded = True, debug = True)
+    app.run(host = '0.0.0.0', port = 8001, threaded = True, debug = True)
