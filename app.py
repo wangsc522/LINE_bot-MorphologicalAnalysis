@@ -52,6 +52,7 @@ def callback():
                 response = action(text)
                 break
         else:
+            post_text(message['content']['from'], '解析中...')
             # 形態素解析
             response = ''
             t = Tokenizer()
