@@ -41,9 +41,9 @@ app = Flask(__name__)
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    message = request.json['result']
-    print(message)
-    for message in masseges:
+    messages = request.json['result']
+    print(messages)
+    for message in messages:
         text = message['content']['text']
         for matcher, action in commands:
             if matcher.search(text):
