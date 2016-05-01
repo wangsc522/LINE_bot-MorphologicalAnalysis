@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import request
 
+from janome.tokenizer import Tokenizer
+
 import requests
 import json
 import re
@@ -42,7 +44,7 @@ app = Flask(__name__)
 @app.route("/callback", methods=['POST'])
 def callback():
     messages = request.json['result']
-    print(messages)
+
     for message in messages:
         text = message['content']['text']
         for matcher, action in commands:
@@ -50,10 +52,12 @@ def callback():
                 response = action(text)
                 break
         else:
-            response = '[オウム返し]' + message['content']['text']
-
-        post_text(message['content']['from'],response)
-
+            # 形態素解析
+            response = ''
+            t = Tokenizer()
+            for token in t.tokenize(message['content']['text']):
+                response += str(token) + '\n'
+            post_text(message['content']['from'], response)
     return ''
 
 if __name__ == "__main__":
