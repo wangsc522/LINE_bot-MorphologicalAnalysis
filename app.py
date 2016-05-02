@@ -36,7 +36,7 @@ def post_text(to, text):
 
 
 commands = (
-    (re.compile('作者', 0), lambda x: 'https://nnsodnb.moe'),
+    (re.compile('作者', 0), lambda x: 'https://nnsnodnb.moe'),
 )
 
 app = Flask(__name__)
