@@ -1,3 +1,3 @@
-CHANNEL_ID = '1466099631'
-CHANNEL_SECRET = '1255afe6c79053d174d67a6d3d310eb5'
-MID = 'ue791aeb4fd39f39d9a9460e80bd07490'
+CHANNEL_ID = '**********'
+CHANNEL_SECRET = '********************************'
+MID = '*********************************'
